@@ -2,11 +2,13 @@
 package Multithreading;
 
 /**
- * There are 4 arrays to sum up in one array ,have to use multithreading 2
- * arrays and other 2 arrays are summed up at a time lastly, 2 summed up arrays
- * are summed up Used Interface(Implements Runnable)
+ * There are 4 arrays to sum up in one array ,have to use multithreading 
+ * 2 arrays and other 2 arrays are summed up at a time 
+ * lastly, 2 summed up arrays are summed up 
+ * Used Interface(Implements Runnable)
  *
- * @author MD. RAKIBUL HASAN RANAK Reg No:2017831005
+ * @author MD. RAKIBUL HASAN RANAK
+ * Reg No:2017831005
  *
  */
 
