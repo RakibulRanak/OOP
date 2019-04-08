@@ -1,4 +1,3 @@
-
 package File;
 import java.util.Scanner;
 import java.io.*;
@@ -13,14 +12,15 @@ public class CreateFile {
         File file2=new File("input.txt");
         file.createNewFile();
         file2.createNewFile();
+        InputStreamReader ireader=new InputStreamReader(new FileInputStream(file2));
+        BufferedReader in=new BufferedReader(ireader);
         
         PrintWriter output = null;
         try {
             output = new PrintWriter(file);
         } catch (FileNotFoundException ex) {
             
-        }
-        
+        }  
         String str,tmp ="";
         String[] word,word_unique;
         word=new String[1000];
@@ -29,16 +29,9 @@ public class CreateFile {
         int total_word=0,total_char=0,unique_word=0;
         int[] freq;
         freq=new int[1000];
+
         
-        Scanner input = null;
-        try {
-            input = new Scanner(file2);
-        } catch (FileNotFoundException ex) {
-          
-        }
-        
-        str=input.nextLine();
-        //System.out.println(str);
+        str=in.readLine();
         for(int i=0;i<str.length();i++){
             if((str.charAt(i)>='A' && str.charAt(i)<='Z') || (str.charAt(i)>='a' && str.charAt(i)<='z')){
                 total_char++;
@@ -91,14 +84,19 @@ public class CreateFile {
                 }
             }
         }
-        
+         for(int i=0;i<unique_word;i++){
+            output.println(word_unique[i] + " "+ freq[i]);
+             System.out.println(word_unique[i] + " "+ freq[i]);  
+        }
 
         output.println("Total chartectar: " + total_char);
+        System.out.println("Total chartectar: " + total_char);
         output.println("Total word: " + total_word);
+        System.out.println("Total word: " + total_word);
         output.println("Total unique word: " + unique_word);
-        for(int i=0;i<unique_word;i++){
-            output.println(word_unique[i] + " "+ freq[i]);
-        }
+        System.out.println("Total unique word: " + unique_word);
+       
+       
         output.close();
         
     }
